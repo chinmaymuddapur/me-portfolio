@@ -13,6 +13,7 @@ import MouseGlow from './MouseGlow';
 import ContactForm from './ContactForm';
 import FloatingIcons from './FloatingIcons';
 import RoboticsBackground from './RoboticsBackground';
+import MobileMenu from './MobileMenu';
 import './portfolio.css';
 
 /* ─── PERSONAL DATA ─────────────────────────────────── */
@@ -282,7 +283,7 @@ export default function ChinmayPortfolio() {
       <div className="portfolio">
         <CustomCursor />
         <MouseGlow />
-        <FloatingIcons count={12} />
+        <FloatingIcons count={window.innerWidth < 768 ? 6 : 12} />
         <RoboticsBackground />
 
         {/* Grid lines decoration */}
@@ -304,16 +305,17 @@ export default function ChinmayPortfolio() {
               </li>
             ))}
           </ul>
-          <a href="#contact" style={{ textDecoration: 'none' }}>
+          <a href="#contact" style={{ textDecoration: 'none' }} className="desktop-cta">
             <MagneticButton className="btn-primary" strength={0.4}>
               <span>Get in Touch →</span>
             </MagneticButton>
           </a>
+          <MobileMenu />
         </nav>
 
         {/* ── HERO ── */}
         <section className="hero-section" id="hero">
-          <ParticleField count={60} />
+          <ParticleField count={window.innerWidth < 768 ? 30 : 60} />
 
           {/* Morphing blob background */}
           <div
